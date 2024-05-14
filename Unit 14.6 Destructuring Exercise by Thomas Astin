@@ -1,0 +1,117 @@
+(Object Destructuring 1)
+let facts = {numPlanets: 8,
+yearNeptuneDiscovered: 1846};
+let {numPlanets, yearNeptuneDiscovered} = facts;
+
+(What does the following code return/print?)
+console.log(numPlanets); //
+8
+console.log(yearNeptuneDiscovered); // 1846
+
+(Object Destructuring 2)
+let planetFacts = {
+    numPlanets: 8,
+    yearNeptuneDiscovered: 1846,
+    yearMarsDiscovered: 1659
+};
+let {numPlanets, ...discoveryYears} = planetFacts;
+
+(What does the following code return/print?)
+console.log(discoveryYears);
+// {yearNeptuneDiscovered: 1846, yearsMarsDiscovered: 1659}
+
+(Object Destructuring 3)
+(What does the following code return/print?)
+function getUserData({firstName, favoriteColor="green"}){
+    return 'Your name is ${firstName} and you like ${favoriteColor}';
+}
+getUserData({firstName: "Alejandro", favoriteColor: "purple"})
+// Your name is Alejandro and you like purple
+getUserData({firstName: "Melissa"})
+// Your name is Melissa and you like green
+
+getUserData({})
+// Your name is undefined and you like green
+
+(Array Destructuring 1)
+let [first, second, third]
+=["Maya", "Marisa", "Chi"];
+
+(What does the following code return/print?)
+console.log(first); // Maya
+console.log(second); // Marisa
+console.log(third); // Chi
+
+(Array Destructuring 2)
+let [raindrops, whiskers, ...aFewOfMyFavoriteThings]
+= [ "Raindrops on roses",
+"whiskers on kittens",
+"Bright copper kettles"<
+"warm woolen mittens",
+"Brown paper packages tied up with strings"
+]
+
+(What does the following code return/print?)
+console.log(raindrops); // "Raindrops on roses"
+console.log(whiskers); // "whiskers on kittens"
+console.log(aFewOfMyFavoriteThings);
+// ["Bright copper kettles", "warm woolen mittens", "Brown paper packages tied
+up with strings"]
+
+(Array Destructuring 3)
+let numbers = [10, 20, 30];
+[numbers[1], numbers[2]] =
+[numbers[2], numbers[1]]
+
+(What does the following the code return/print?)
+console.log(numbers) // [10,30,20]
+
+(Assigning Variables to Object Properties: ES5)
+var obj = {
+    numbers: {
+        a: 1,
+        b: 2
+    }
+};
+var a = obj.numbers.a;
+var b = obj.numbers.b;
+
+(ES2015)
+const obj = {
+    numbers: {
+        a: 1,
+        b: 2
+    }
+};
+
+const {a,b} = obj.numbers
+
+(Array Swap ES5)
+var arr = [1, 2];
+var temp = arr[0];
+arr[0] = arr[1];
+arr[1] = temp;
+
+(One-Line Array Swap with Destructuring: ES2015)
+[arr[0], arr[1]] - [arr[1], arr[0]]
+
+(raceResults(): Write a function called raceResults which accepts a isngle array argument.
+It should return an object with the keys first, second, third, and rest.
+1. first: the first element in the array
+2. second: the second element in the array
+3. third: the third element in the array
+4. rest: all other elements in the array
+Write a one line function to make this work using
+1. An arrow function
+2. Destructuring
+3. Enhanced object assignment (same key/value shortcut)
+)
+
+raceResults(['Tom', 'Margaret', 'Allison', 'David', 'Pierre'])
+
+// {first: "Tom", second: "Margaret", third: "Allison",
+rest: ["David", "Pierre"]}
+
+const raceResults =
+([first, second, third, ...rest]) =>
+({first, second, third, rest})
